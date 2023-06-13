@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const [a,b,...c]=[1,2,3,45,6]
+        // console.log(c);//[3,45,6]
+
+        // //添加默认值 防止undefined 传递
+        // const [e=o,f=0]=[]
+
+        //按需导入赋值
+        // const [a,,b,c,d,,e]=[1,2,3,45,67,89,66]
+        // console.log(a,b,c,d,e);
+
+        //多维数组解构
+        // const arr=[1,2,[3,4]]
+        // const [a,b,c]=[1,2,[3,4]]
+
+        const [a,b,[c,d]]=[1,2,[3,4]]
+        console.log(a,b,c,d);
+
+
+        
+    </script>
+</body>
+</html>

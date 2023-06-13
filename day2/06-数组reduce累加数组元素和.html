@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr=[1,2,34,5]
+        //无初始值
+        const total=arr.reduce(function (prev,current) {
+            return prev+current
+        })
+        console.log(total);
+        //有初始值
+        const result=arr.reduce(function (a,b) {
+            return a*b
+        },100)
+        console.log(result);
+
+        const a1=arr.reduce( (b,c) => b-c,100)
+        console.log(a1);
+</script>
+</body>
+</html>

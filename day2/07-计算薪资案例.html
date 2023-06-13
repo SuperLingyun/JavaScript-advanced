@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [
+            {
+                name: '张三',
+                salary: 10000
+            }
+            ,
+            {
+                name: '李四',
+                salary: 500
+            }
+            ,
+            {
+                name: '黄1n',
+                salary: 50000
+            }
+        ]
+        //计算薪资
+        const total = arr.reduce(
+            (p, c) => {
+                //    console.log(p);
+                //    console.log(c); 
+                return p+c.salary
+            }, 0
+        )
+        console.log(total);
+
+        //涨薪资
+        const result=arr.reduce( (p,c) => p+c.salary*1.3,0)
+        console.log(result);
+        
+    </script>
+</body>
+
+</html>

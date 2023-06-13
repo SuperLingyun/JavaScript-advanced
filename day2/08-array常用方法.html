@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const arr=['red','blue','green']
+        // const result= arr.find( element =>element==='red')
+        // console.log(result);
+
+
+        const arr = [
+            {
+                name: '小米',
+                price: 1999
+            },
+            {
+                name: '华为',
+                price: 8999
+            }
+        ]
+        //1.使用find()筛选到指定要使用的数据，并返回     
+        const result = arr.find(({ name }) => name === '小米')
+        console.log(result);
+
+        // const inventory = [
+        //     { name: "apples", quantity: 2 },
+        //     { name: "bananas", quantity: 0 },
+        //     { name: "cherries", quantity: 5 },
+        // ];
+
+        // const result = inventory.find(({ name }) => name === "cherries");
+
+        // console.log(result); // { name: 'cherries', quantity: 5 }
+
+        //2 every()方法 一个数组内的所有元素是否都通过某个验证，并返回布尔值
+
+        const arr1 = [10, 20, 30]
+        const flag= arr1.every((item) => item >= 10)
+            console.log(flag);
+    </script>
+</body>
+
+</html>

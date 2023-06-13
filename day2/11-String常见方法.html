@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.字符串转换成数组split
+        const str = 'pink,red'
+        const arr = str.split(',')
+        console.log(arr);
+
+        const str1 = '2012-12-12'
+        const arr1 = str1.split('-')
+        console.log(arr1);
+
+        const str2 = '2012,121,2'
+        const arr2 = str2.split('-')
+        console.log(arr2);
+        //2substring 截取字符串  str.([开始索引号],[结束索引号-可省略])
+
+        const str3='你好啊,美丽新世界'
+        const str33=str3.substring(2,3)
+        console.log(str33);
+
+        //3starsWith 检测是否以某字符开头
+
+        const str4='大家好啊！'
+        const str44=str4.startsWith('家',1)
+        const str444=str4.endsWith('!')
+
+        console.log(str44); 
+        console.log(str444);
+
+        //4.includes  检测字符串中是否包含某个字符  严格区分大小写 返回布尔值
+        const str5='你好啊JS'
+        const str55=str.includes('J')
+        console.log(str55);
+    </script>
+</body>
+
+</html>

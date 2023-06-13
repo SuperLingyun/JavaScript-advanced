@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对象解构
+        // const obj={
+        //     uname:'老师',
+        //     age:18
+        // }
+        // const {uname,age}=obj
+        // console.log(uname,age);
+        // //const uname=obj.uname
+
+        //解构变量改名
+        // const obj={
+        //     uname:'老师',
+        //     age:18
+        // }
+        // const {uname:username,age}=obj
+        // console.log(username,age);
+        //const uname=obj.uname
+
+        //解构数组对象
+        // const obj=[{
+        //     uname:'老师',
+        //     age:18
+        // }]
+        // const [{uname:username,age}]=obj
+        // console.log(username,age);
+
+        //多级对象解构
+        // const pig={
+        //     name:'佩奇',
+        //     family:{
+        //         mother:'祝妈妈',
+        //         fatherL:'猪爸爸'
+        //     },
+        //     age:18
+        // }
+        // const {name,family:{mother,fatherL}}=pig
+        // console.log(name,mother);
+
+        //
+        const person=[{
+            name:'佩奇',
+            family:{
+                mother:'祝妈妈',
+                fatherL:'猪爸爸'
+            },
+            age:18
+        }]
+        const [{name,family:{mother,fatherL}}]=person
+        console.log(name,mother);
+    </script>
+</body>
+</html>

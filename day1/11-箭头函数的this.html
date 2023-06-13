@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //this 的指向：谁调用函数，就指向谁
+        console.log(this); //window
+        function fn() {
+            console.log(this); //window
+        }
+
+        // 对象方法里的 指向Obj
+        const obj ={
+            name:'andy',
+            sayHi:function(){
+                console.log(this);
+            }
+        }
+        obj.sayHi()
+        // 2.箭头函数的this  window
+        const fn1 = () => {
+            console.log(this);
+        }
+        fn1()
+        //指向 window
+        const obj1 = {
+            name:'pink',
+            sayHi1: () => {
+                console.log(this);
+            }
+        }
+        obj1.sayHi1()
+
+        //2.2 包含指向上一层
+        const obj2={
+            uname:'ha',
+            sayHi2:function () {
+                console.log(this);
+                let i=1
+                const count = () => {
+                    console.log(this);
+                }
+                 count()
+            }
+        }
+        obj2.sayHi2()
+    </script>
+</body>
+</html>

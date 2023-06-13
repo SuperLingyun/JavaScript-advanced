@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getSum(a,b,...other) {
+            console.log(other);
+        }
+        getSum(2,3)
+        getSum(2,3,9)
+
+        //展开运算符
+        let arr=[2,3,4]
+        console.log(...arr);
+        console.log(Math.max(...arr));
+        // ...arr===1,2,3
+
+        //合并数组  
+        const arr2=[2,3,5]
+        const arr3=[...arr,...arr2]
+        console.log(arr3);
+
+    </script>
+</body>
+</html>
