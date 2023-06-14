@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //人
+        function Person() {
+            this.eyes =2,
+            this.head =1 
+        }
+        // const Person= {
+        //     eyes :2,
+        //     head : 1
+        // }
+
+        //女人
+        function Woman() {
+            // this.eyes = 2
+            // this.head =1
+        }
+
+        function Man() {
+            // this.eyes =2
+            // this.head = 1
+        }
+
+        //！！！需要继承的话  使用构造函数去实例对象 来继承
+        //继承后用constructor 重新指向原来的构造函数
+        Woman.prototype=  new Person();
+        Woman.prototype.constructor=Woman
+
+        Man.prototype=new Person()
+        Man.prototype.constructor=Man
+        // Woman.prototype=Person.prototype
+        // console.log(Person.prototype);
+        // console.log(Woman.prototype);
+        //给女人增加一个方法
+        Woman.prototype.baby= function () {
+            console.log('宝贝');
+        }
+
+
+
+
+        //公共的部分放在原型上
+        // Person.prototype={
+        //     constructor:Person,
+
+        // }
+
+        // const black = new Person();
+
+        const red = new Woman();
+        console.log(red);
+        const pink = new Man();
+        console.log(pink);
+
+        //总结
+        //子类.原型=new 父类
+	//继承父类的属性和方法而在给子类原型新增方法或属性时不会同步新增到父类//
+
+
+    </script>
+</body>
+</html>
