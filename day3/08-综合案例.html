@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            width: 300px;
+            min-height: 100px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            position: fixed;
+            z-index: 999;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            background-color: #fff;
+        }
+
+        .modal .header {
+            line-height: 40px;
+            padding: 0 10px;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .modal .header i {
+            font-style: normal;
+            color: #999;
+            position: absolute;
+            right: 15px;
+            top: -2px;
+            cursor: pointer;
+        }
+
+        .modal .body {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .modal .footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .modal .footer a {
+            padding: 3px 8px;
+            background: #ccc;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 2px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .modal .footer a.submit {
+            background-color: #369;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="modal">
+        <div class="header">温馨提示<i>x</i></div>
+        <div class="body">您没有删除权限</div>
+    </div> -->
+
+    <button id="delete">
+        删除
+    </button>
+
+    <button id="login">
+        登录
+    </button>
+
+    <script>
+        function Modal(title = '', message = '') {
+            //1。1创建div便签
+
+            this.modalBox = document.createElement('div')
+            //1.2给div添加类名为modal
+            this.modalBox.className = 'modal'
+            //1.3modal添加2个div并修改内容
+            this.modalBox.innerHTML = `
+                        <div class="header">${title}<i>x</i></div>
+                        <div class="body">${message}</div>
+                        `
+            // console.log(this.modalBox);
+        }
+
+        //2open方法
+        Modal.prototype = {
+            constructor: Modal,
+            open: function name(params) {
+                //先判断页面是否有盒子，有删除，无再继续添加
+                const box=document.querySelector('.modal')
+                //为真就移除再继续下面代码，为假直接执行下面代码
+                box &&box.remove()
+                //不要用箭头函数 需要用到THIS
+                //把modal打印到页面上
+                document.body.append(this.modalBox)
+
+                //3.2盒子显示出来就可以关闭盒子
+                this.modalBox.querySelector('i').addEventListener('click', (params) => {
+                    //箭头函数里没有this，引用的this指向上层对象【实例对象】
+                    this.close()
+                })
+            },
+            close: function name(params) {
+                //3关闭modal盒子
+                this.modalBox.remove()
+                
+            }
+        }
+        //删除按钮测试
+        document.querySelector('#delete').addEventListener('click', () => {
+            const del = new Modal('文学提示', '您没有权限删除');
+            del.open()
+        })
+
+        document.querySelector('#login').addEventListener('click', () => {
+            const login = new Modal('友情提示', '您没有注册呢');
+            login.open()
+        })
+        // const name = new Modal();
+    </script>
+</body>
+
+</html>
