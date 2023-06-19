@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'pink',
+            age: 19,
+            hobby: ['气球', '足球'],
+            family: {
+                baby: '小pink'
+            }
+        }
+        const o = {}
+
+
+        //拷贝函数  浅拷贝
+        function deepCopy(newObj, oldObj) {
+            for (let key in oldObj) {
+
+                //遇见对象中包含数组,判断是否数组
+                if (oldObj[key] instanceof Array) {
+                    //将数组赋予空 接收hobby
+                    newObj[key] = []
+                    //利用递归函数直接判断，并进行for循环
+                    deepCopy(newObj[key], oldObj[key])
+
+                } else if (oldObj[key] instanceof Object) {
+                    //将数组赋予空
+                    newObj[key] = {}
+                    //利用递归函数直接判断，并进行for循环
+                    deepCopy(newObj[key], oldObj[key])
+
+                }
+                else {
+                    //k属性名  oldObj[k]属性值
+                    newObj[key] = oldObj[key] // newObj 等价于创建o.name
+                }
+
+
+
+            }
+        }
+
+        deepCopy(o, obj)  //函数调用 o新对象  obj旧对象
+
+
+        o.age = 29
+        o.hobby[0] = '篮球'
+        o.family.baby = '老小孩'
+
+        console.log(o);
+        console.log(obj);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
