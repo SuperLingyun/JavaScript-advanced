@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj={
+            uname:'pink'
+        }
+        function fn(x,y) {
+            console.log(this);
+            console.log(x+y);
+            
+            
+        }
+        // fn()
+        //1.调用函数
+        //2.改变this
+        // fun.apply(this指向,[参数]) 参数必须在数组中
+        // fn.apply(obj,[1,2])
+        // 3.返回值，本身就算在调用函数，所以返回值就是函数的返回值
+        //使用场景
+    //     const arr=[1,2,3,77,120,33]
+    //    console.log(Math.max.apply(Math,arr)); 
+    const arr=[1,2,3,77,120,33]
+    const max =Math.max.apply(Math,arr)
+    console.log(max);
+
+    //求最大值 展开运算符
+    console.log(Math.min(...arr));
+
+
+    </script>
+</body>
+</html>

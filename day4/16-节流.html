@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            color: #fff;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="./lodash.min.js"></script>
+    <script>
+        //利用节流实现性能优化
+        //需求：鼠标在盒子上移动，不管移动多少次，每隔500MS里面的数字就会+1
+        //
+        //1.正常步骤，无防抖优化
+        let i = 1
+        const box = document.querySelector('.box')
+        function mouseMove() {
+            box.innerHTML = i++
+        }
+
+        //2使用lodash节流函数
+        // box.addEventListener('mousemove',_.throttle(mouseMove,1000))
+
+        //3手写节流函数
+
+        // 节流的核心就是利用定时器(setTimeout) 来实现
+        // 1.声明一个定时器变量
+        // 2.当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器
+        // 3.如果没有定时器则开启定时器，记得存到变量里面
+        // 3.1定时器里面调用执行的函数// 3.2定时器里面要把定时器清空
+        function throttle(fn, t) {
+            let timer = null
+
+            return function () {
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        fn()
+                        //清空定时器
+                        timer = null
+                    }, t);
+                }
+            }
+        }
+
+        box.addEventListener('mousemove',throttle(mouseMove,3000))
+
+    </script>
+</body>
+
+</html>

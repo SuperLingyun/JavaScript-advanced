@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>发送短信</button>
+    <script>
+
+const obj={
+    age:18
+}
+
+function fn() {
+    console.log(this);
+}
+fn()
+
+// 1.bind 不会调用函数
+// 2.能改变this指向
+// 3.返回值为拷贝的原函数，但this指向已变化 
+fn.bind(obj)
+
+const fun= fn.bind(obj)
+fun()
+
+//需求  有一个按钮  点击立马就禁用  2秒后开启
+const btn=document.querySelector('button')
+btn.addEventListener('click', function () {
+
+    this.disabled =true
+
+    //在这个函数中把函数的this原来的windows指向改为btn
+
+//     setTimeout( function () {
+//     this.disabled = false  
+// }.bind(btn),5000)
+
+//因为是在监听事件内使用定时器，所以定时器的this指向就是btn
+//箭头函数使用bind发发
+    setTimeout( (() => {
+        this.disabled = false  
+    }).bind(this), 2000);
+})
+
+
+// setTimeout(() => {
+//     //在这个函数中把函数的this原来的windows指向改为btn
+//     this.disabled = false
+// }, 2000);
+
+
+// setTimeout( function () {
+//     this.disabled = false  
+// }.bind(this),5000)
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

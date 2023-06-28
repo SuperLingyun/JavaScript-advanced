@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getNUM() {
+            let i = prompt('请输入不大于5位的数字')
+            const reg = /^[0-9]{5}$/
+            if (reg.test(i)) {
+                i = i + "";
+
+                let arr = i.split("");
+
+                let newArr = arr.reverse();
+                return alert(newArr.join(''))
+                console.log(newArr.join(''))
+                
+
+            }
+            else {
+                alert('您输入的不是有效数字！！！')
+            }
+        }
+        getNUM()
+    </script>
+</body>
+
+</html>
